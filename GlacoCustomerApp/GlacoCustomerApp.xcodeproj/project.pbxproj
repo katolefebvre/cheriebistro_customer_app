@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D144BAE251FA95100D82011 /* cherieBistroLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D144BAD251FA95100D82011 /* cherieBistroLogo.png */; };
+		7D144BB1251FA96F00D82011 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D144BB0251FA96F00D82011 /* LoginViewController.swift */; };
+		7D144BB4251FD5E300D82011 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D144BB3251FD5E300D82011 /* Table.swift */; };
 		7D38513F251C414A00FFF012 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38513E251C414A00FFF012 /* AppDelegate.swift */; };
 		7D385141251C414A00FFF012 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385140251C414A00FFF012 /* SceneDelegate.swift */; };
 		7D385143251C414A00FFF012 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385142251C414A00FFF012 /* ViewController.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D144BAD251FA95100D82011 /* cherieBistroLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cherieBistroLogo.png; sourceTree = "<group>"; };
+		7D144BB0251FA96F00D82011 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7D144BB3251FD5E300D82011 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		7D38513B251C414A00FFF012 /* GlacoCustomerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlacoCustomerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D38513E251C414A00FFF012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D385140251C414A00FFF012 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 		7D385155251C41D500FFF012 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7D144BAD251FA95100D82011 /* cherieBistroLogo.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				7D385142251C414A00FFF012 /* ViewController.swift */,
+				7D144BB0251FA96F00D82011 /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -106,6 +114,7 @@
 				7D38515D251C42F100FFF012 /* TimeSlot.swift */,
 				7D385160251C433300FFF012 /* MenuItem.swift */,
 				7D385163251C434C00FFF012 /* Category.swift */,
+				7D144BB3251FD5E300D82011 /* Table.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +188,7 @@
 				7D38514B251C414B00FFF012 /* LaunchScreen.storyboard in Resources */,
 				7D385148251C414B00FFF012 /* Assets.xcassets in Resources */,
 				7D385146251C414A00FFF012 /* Main.storyboard in Resources */,
+				7D144BAE251FA95100D82011 /* cherieBistroLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +202,9 @@
 				7D38515E251C42F100FFF012 /* TimeSlot.swift in Sources */,
 				7D385143251C414A00FFF012 /* ViewController.swift in Sources */,
 				7D38513F251C414A00FFF012 /* AppDelegate.swift in Sources */,
+				7D144BB4251FD5E300D82011 /* Table.swift in Sources */,
 				7D385161251C433300FFF012 /* MenuItem.swift in Sources */,
+				7D144BB1251FA96F00D82011 /* LoginViewController.swift in Sources */,
 				7D38515B251C42BD00FFF012 /* DatabaseAccess.swift in Sources */,
 				7D385141251C414A00FFF012 /* SceneDelegate.swift in Sources */,
 				7D385164251C434C00FFF012 /* Category.swift in Sources */,
