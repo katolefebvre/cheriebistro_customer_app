@@ -46,13 +46,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if tableId!.isEmpty {
             return
         }
-        
         if let foundTable = DatabaseAccess.loginTable(loginId: tableId!) {
-            
+            let alertController = UIAlertController(title: "Good", message: "Table ID \(String(describing: tableId)) found", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true)
             mainDelegate.loggedTable = foundTable
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "loginView", sender: nil)
-            }
+            //DispatchQueue.main.async {
+            //    self.performSegue(withIdentifier: "loginView", sender: nil)
+            //}
         } else {
             let alertController = UIAlertController(title: "Error", message: "Invalid Table ID", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)

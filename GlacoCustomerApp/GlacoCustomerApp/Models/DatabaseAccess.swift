@@ -290,16 +290,17 @@ class DatabaseAccess {
 //        return employee
 //    }
     
+    // not sure if needed yet
     class func loginTable(loginId: String) -> Table? {
         var table: Table?
         let myUrl = URL(string: "http://142.55.32.86:50131/cheriebistro/cheriebistro/api/loginTable.php")!
         let request = NSMutableURLRequest(url: myUrl)
         request.httpMethod = "POST"
         let semaphore = DispatchSemaphore(value: 0)
-        
+
         let postString = "tableID=\(loginId)"
         request.httpBody = postString.data(using: String.Encoding.utf8)
-        
+
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
             if error != nil {
@@ -310,15 +311,15 @@ class DatabaseAccess {
             do {
                 var LoginJSON: NSDictionary!
                 LoginJSON = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                
+
                 if let parseJSON = LoginJSON {
                     let response: String = parseJSON["status"] as! String
                     print("result: \(response)")
-                    
+
                     if response == "Success" {
                         let tableId: String = LoginJSON["tableID"] as! String
                         let tableName: String = LoginJSON["tableName"] as! String
-                        
+
                         table = Table(id: tableId, name: tableName)
                     }
                 } else {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D01BD38252110A300F91B4C /* DatabaseIdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01BD37252110A300F91B4C /* DatabaseIdTableViewCell.swift */; };
 		7D144BAE251FA95100D82011 /* cherieBistroLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D144BAD251FA95100D82011 /* cherieBistroLogo.png */; };
 		7D144BB1251FA96F00D82011 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D144BB0251FA96F00D82011 /* LoginViewController.swift */; };
 		7D144BB4251FD5E300D82011 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D144BB3251FD5E300D82011 /* Table.swift */; };
@@ -20,9 +21,12 @@
 		7D38515E251C42F100FFF012 /* TimeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38515D251C42F100FFF012 /* TimeSlot.swift */; };
 		7D385161251C433300FFF012 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385160251C433300FFF012 /* MenuItem.swift */; };
 		7D385164251C434C00FFF012 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385163251C434C00FFF012 /* Category.swift */; };
+		7DAD3F17251FE1B7006C85FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD3F16251FE1B7006C85FF /* MenuViewController.swift */; };
+		7DAD3F1B251FE771006C85FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DAD3F1A251FE771006C85FF /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D01BD37252110A300F91B4C /* DatabaseIdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseIdTableViewCell.swift; sourceTree = "<group>"; };
 		7D144BAD251FA95100D82011 /* cherieBistroLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cherieBistroLogo.png; sourceTree = "<group>"; };
 		7D144BB0251FA96F00D82011 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7D144BB3251FD5E300D82011 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 		7D38515D251C42F100FFF012 /* TimeSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlot.swift; sourceTree = "<group>"; };
 		7D385160251C433300FFF012 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		7D385163251C434C00FFF012 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		7DAD3F16251FE1B7006C85FF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		7DAD3F1A251FE771006C85FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DAD3F1B251FE771006C85FF /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +63,7 @@
 			children = (
 				7D38513D251C414A00FFF012 /* GlacoCustomerApp */,
 				7D38513C251C414A00FFF012 /* Products */,
+				7DAD3F19251FE771006C85FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +110,7 @@
 			children = (
 				7D385142251C414A00FFF012 /* ViewController.swift */,
 				7D144BB0251FA96F00D82011 /* LoginViewController.swift */,
+				7DAD3F16251FE1B7006C85FF /* MenuViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -115,6 +124,7 @@
 				7D385160251C433300FFF012 /* MenuItem.swift */,
 				7D385163251C434C00FFF012 /* Category.swift */,
 				7D144BB3251FD5E300D82011 /* Table.swift */,
+				7D01BD37252110A300F91B4C /* DatabaseIdTableViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -126,6 +136,14 @@
 				7D385140251C414A00FFF012 /* SceneDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		7DAD3F19251FE771006C85FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DAD3F1A251FE771006C85FF /* QuartzCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,12 +218,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D38515E251C42F100FFF012 /* TimeSlot.swift in Sources */,
+				7DAD3F17251FE1B7006C85FF /* MenuViewController.swift in Sources */,
 				7D385143251C414A00FFF012 /* ViewController.swift in Sources */,
 				7D38513F251C414A00FFF012 /* AppDelegate.swift in Sources */,
 				7D144BB4251FD5E300D82011 /* Table.swift in Sources */,
 				7D385161251C433300FFF012 /* MenuItem.swift in Sources */,
 				7D144BB1251FA96F00D82011 /* LoginViewController.swift in Sources */,
 				7D38515B251C42BD00FFF012 /* DatabaseAccess.swift in Sources */,
+				7D01BD38252110A300F91B4C /* DatabaseIdTableViewCell.swift in Sources */,
 				7D385141251C414A00FFF012 /* SceneDelegate.swift in Sources */,
 				7D385164251C434C00FFF012 /* Category.swift in Sources */,
 			);
