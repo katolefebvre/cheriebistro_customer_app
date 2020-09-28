@@ -64,6 +64,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         tableIdTextField.text = ""
         loginBtn.isEnabled = false
-
     }
 }

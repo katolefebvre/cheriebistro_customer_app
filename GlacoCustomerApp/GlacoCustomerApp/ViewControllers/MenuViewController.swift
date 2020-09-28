@@ -27,7 +27,7 @@ class MenuViewController: UIViewController {
         menuCategories = DatabaseAccess.getCategories()
         
         view.addSubview(menuCollectionView)
-        menuCollectionView.backgroundColor = .white
+        menuCollectionView.backgroundColor = .darkGray
         
         menuCollectionView.delegate = self
         menuCollectionView.dataSource = self
@@ -55,7 +55,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         cell.layer.shadowRadius = 4
         cell.layer.shadowOpacity = 0.5
         cell.layer.masksToBounds = false
-        cell.layer.backgroundColor = UIColor.clear.cgColor
+        cell.layer.backgroundColor = UIColor.white.cgColor
         
         cell.configure()
         
@@ -74,18 +74,18 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tableCell : DatabaseIdTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "category") as? DatabaseIdTableViewCell ?? DatabaseIdTableViewCell(style:UITableViewCell.CellStyle.default, reuseIdentifier: "category")
+        let cell : DatabaseIdTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "category") as? DatabaseIdTableViewCell ?? DatabaseIdTableViewCell(style:UITableViewCell.CellStyle.default, reuseIdentifier: "category")
                 
         let cellBackgroundView = UIView()
         cellBackgroundView.backgroundColor = .systemBlue
         
-        tableCell?.textLabel?.font = UIFont.systemFont(ofSize: 24)
-        tableCell?.textLabel?.text = menuCategories[indexPath.row].name
-        tableCell?.databaseId = (Int)(menuCategories[indexPath.row].id)
-        tableCell?.selectedBackgroundView = cellBackgroundView
+        cell?.textLabel?.font = UIFont.systemFont(ofSize: 24)
+        cell?.textLabel?.text = menuCategories[indexPath.row].name
+        cell?.databaseId = (Int)(menuCategories[indexPath.row].id)
+        cell?.backgroundColor = .darkGray
+        cell?.textLabel?.textColor = .white
+        cell?.selectedBackgroundView = cellBackgroundView
         
-        return tableCell!
+        return cell!
     }
-    
-    
 }
