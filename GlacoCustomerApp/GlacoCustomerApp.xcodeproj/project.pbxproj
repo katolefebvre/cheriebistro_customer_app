@@ -25,6 +25,8 @@
 		7DAD3F1B251FE771006C85FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DAD3F1A251FE771006C85FF /* QuartzCore.framework */; };
 		7DB0FF112521936A0030065C /* MenuItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0FF102521936A0030065C /* MenuItemCollectionViewCell.swift */; };
 		7DB0FF14252197800030065C /* burger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DB0FF13252197800030065C /* burger.jpg */; };
+		AE5E14AF2522B4A20034BA6F /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5E14AE2522B4A20034BA6F /* ShoppingCartTableViewCell.swift */; };
+		AEA9047125229ABE004A7EBE /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9047025229ABE004A7EBE /* ShoppingCartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		7DAD3F1A251FE771006C85FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7DB0FF102521936A0030065C /* MenuItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DB0FF13252197800030065C /* burger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burger.jpg; sourceTree = "<group>"; };
+		AE5E14AE2522B4A20034BA6F /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartTableViewCell.swift; sourceTree = "<group>"; };
+		AEA9047025229ABE004A7EBE /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 				7D385142251C414A00FFF012 /* ViewController.swift */,
 				7D144BB0251FA96F00D82011 /* LoginViewController.swift */,
 				7DAD3F16251FE1B7006C85FF /* MenuViewController.swift */,
+				AEA9047025229ABE004A7EBE /* ShoppingCartViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				7D144BB3251FD5E300D82011 /* Table.swift */,
 				7D01BD37252110A300F91B4C /* DatabaseIdTableViewCell.swift */,
 				7DB0FF102521936A0030065C /* MenuItemCollectionViewCell.swift */,
+				AE5E14AE2522B4A20034BA6F /* ShoppingCartTableViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,8 +237,10 @@
 				7D144BB4251FD5E300D82011 /* Table.swift in Sources */,
 				7D385161251C433300FFF012 /* MenuItem.swift in Sources */,
 				7D144BB1251FA96F00D82011 /* LoginViewController.swift in Sources */,
+				AE5E14AF2522B4A20034BA6F /* ShoppingCartTableViewCell.swift in Sources */,
 				7D38515B251C42BD00FFF012 /* DatabaseAccess.swift in Sources */,
 				7DB0FF112521936A0030065C /* MenuItemCollectionViewCell.swift in Sources */,
+				AEA9047125229ABE004A7EBE /* ShoppingCartViewController.swift in Sources */,
 				7D01BD38252110A300F91B4C /* DatabaseIdTableViewCell.swift in Sources */,
 				7D385141251C414A00FFF012 /* SceneDelegate.swift in Sources */,
 				7D385164251C434C00FFF012 /* Category.swift in Sources */,
@@ -384,6 +392,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GlacoCustomerApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,6 +411,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GlacoCustomerApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
