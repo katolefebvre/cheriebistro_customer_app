@@ -21,6 +21,8 @@ class MenuViewController: UIViewController {
     var menuItems : [MenuItem] = []
     var menuCategories : [Category] = []
 
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         menuItems = DatabaseAccess.getMenuItems()
@@ -35,6 +37,12 @@ class MenuViewController: UIViewController {
         menuCategoriesTableView.delegate = self
         menuCategoriesTableView.dataSource = self
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+    didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! MenuItemCollectionViewCell
+        mainDelegate.ShoppingCart.append(cell.item!) // item will never be nil so this should be safe
+    }
 }
 
 extension MenuViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -47,6 +55,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         let cell = menuCollectionView.dequeueReusableCell(withReuseIdentifier: "menuItem", for: indexPath) as! MenuItemCollectionViewCell
         cell.itemId = menuItems[indexPath.row].id
         cell.itemName = menuItems[indexPath.row].name
+        cell.item = menuItems[indexPath.row]
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.cornerRadius = 4

@@ -14,6 +14,7 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
     
     public var itemId : Int?
     public var itemName : String?
+    public var item : MenuItem?
 
     override func awakeFromNib() {
         super.awakeFromNib()
