@@ -56,7 +56,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: menuCollectionView.frame.width/4.2, height: menuCollectionView.frame.height/2)
+        return CGSize(width: menuCollectionView.frame.width/4.18, height: menuCollectionView.frame.height/2)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -65,26 +65,3 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
-
-//extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return menuCategories.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell : DatabaseIdTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "category") as? DatabaseIdTableViewCell ?? DatabaseIdTableViewCell(style:UITableViewCell.CellStyle.default, reuseIdentifier: "category")
-//
-//        let cellBackgroundView = UIView()
-//        cellBackgroundView.backgroundColor = .systemBlue
-//
-//        cell?.textLabel?.font = UIFont.systemFont(ofSize: 24)
-//        cell?.textLabel?.text = menuCategories[indexPath.row].name
-//        cell?.databaseId = (Int)(menuCategories[indexPath.row].id)
-//        cell?.backgroundColor = .darkGray
-//        cell?.textLabel?.textColor = .white
-//        cell?.selectedBackgroundView = cellBackgroundView
-//
-//        return cell!
-//    }
-//}

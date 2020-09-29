@@ -135,6 +135,51 @@ class DatabaseAccess {
         return results
     }
     
+    class func getMenuItemsForCategory(categoryId: Int) -> [MenuItem] {
+        var results: [MenuItem] = []
+        let url = URL(string: "http://142.55.32.86:50131/cheriebistro/cheriebistro/api/getmenuitemsforcategory.php?categoryId=\(categoryId)")!
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "GET"
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil {
+                print("error")
+                return
+            }
+            
+            do {
+                var menuitemJSON : NSDictionary!
+                menuitemJSON = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                let menuitemArray : NSArray = menuitemJSON["menu_items"] as! NSArray
+                
+                for menuitem in menuitemArray {
+                    if let mi = menuitem as? [String : Any] {
+                        results.append(MenuItem(
+                            id: Int(mi["id"]! as! String)!,
+                            name: mi["name"]! as! String,
+                            description: mi["description"]! as! String,
+                            price: Float(mi["price"]! as! String)!,
+                            timeslot: TimeSlot(
+                                id: Int(mi["time_slot_id"]! as! String)!,
+                                name: "Sunrise Breakfast" // hard coded for now
+                            )
+                        ))
+                    }
+                }
+            } catch {
+                print(error)
+            }
+            semaphore.signal()
+        }
+        
+        task.resume()
+        _ = semaphore.wait(wallTimeout: .distantFuture)
+        return results
+    }
+    
     
     /// Sends a request to add a MenuItem to the database
     /// - Parameters:

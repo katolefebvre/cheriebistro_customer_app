@@ -15,10 +15,16 @@ class MenuItemsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        items = DatabaseAccess.getMenuItems()
-        
+        items = DatabaseAccess.getMenuItemsForCategory(categoryId: categoryId)
         itemsTableView.backgroundColor = .darkGray
         itemsTableView.rowHeight = 100
+        
+        if items.count == 0 {
+            let emptyItemsAlertController = UIAlertController(title: "No Items Available", message: "No items for this category were found.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            emptyItemsAlertController.addAction(cancelAction)
+            self.present(emptyItemsAlertController, animated: true)
+        }
     }
 }
 
@@ -34,6 +40,4 @@ extension MenuItemsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure()
         return cell
     }
-    
-    
 }
