@@ -7,20 +7,19 @@
 
 import UIKit
 
-class MenuItemCollectionViewCell: UICollectionViewCell {
+class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var itemNameLbl: UILabel!
     
-    public var itemId : Int?
-    public var itemName : String?
+    public var category : Category?
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     public func configure() {
-        itemNameLbl.text = itemName
+        itemNameLbl.text = category?.name
         bgImageView.image = UIImage(named: "burger.jpg")
         bgImageView.contentMode = .scaleAspectFill
         bgImageView.clipsToBounds = true
