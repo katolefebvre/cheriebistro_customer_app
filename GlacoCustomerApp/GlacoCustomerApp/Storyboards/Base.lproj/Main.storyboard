@@ -63,7 +63,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="GHE-26-CjQ" kind="show" id="P3t-iS-YYn"/>
+                                    <segue destination="GHE-26-CjQ" kind="show" identifier="loginView" id="P3t-iS-YYn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -83,7 +83,7 @@
         <!--Menu-->
         <scene sceneID="ILl-Jc-Qvj">
             <objects>
-                <viewController id="GHE-26-CjQ" customClass="MenuViewController" customModule="GlacoCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GHE-26-CjQ" customClass="MenuCategoriesViewController" customModule="GlacoCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q3W-hg-P1m">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
