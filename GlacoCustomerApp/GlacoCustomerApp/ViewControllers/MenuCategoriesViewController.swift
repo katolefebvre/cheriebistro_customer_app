@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuCategoriesViewController: UIViewController {
     
     @IBOutlet weak var menuCollectionView: UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
@@ -31,7 +31,7 @@ class MenuViewController: UIViewController {
     }
 }
 
-extension MenuViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension MenuCategoriesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menuCategories.count
