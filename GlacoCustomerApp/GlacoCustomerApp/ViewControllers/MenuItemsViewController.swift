@@ -10,21 +10,30 @@ import UIKit
 class MenuItemsViewController: UIViewController {
     
     @IBOutlet weak var itemsTableView: UITableView!
+    @IBOutlet weak var categoryNameLbl: UILabel!
+    
     var categoryId: Int!
+    var categoryName: String!
     var items: [MenuItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryNameLbl.text = categoryName
         items = DatabaseAccess.getMenuItemsForCategory(categoryId: categoryId)
         itemsTableView.backgroundColor = .darkGray
         itemsTableView.rowHeight = 100
         
         if items.count == 0 {
-            let emptyItemsAlertController = UIAlertController(title: "No Items Available", message: "No items for this category were found.", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            let emptyItemsAlertController = UIAlertController(title: "No Items Available", message: "No items for this category are available at this time.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel) { alertAction in
+                self.performSegue(withIdentifier: "doUnwindToCategories", sender: self)
+            }
             emptyItemsAlertController.addAction(cancelAction)
             self.present(emptyItemsAlertController, animated: true)
         }
+    }
+    
+    @IBAction func doUnwind(segue:UIStoryboardSegue) {
     }
 }
 

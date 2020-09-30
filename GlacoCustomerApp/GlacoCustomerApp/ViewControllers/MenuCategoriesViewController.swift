@@ -62,6 +62,7 @@ extension MenuCategoriesViewController: UICollectionViewDelegateFlowLayout, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = self.storyboard?.instantiateViewController(identifier: "MenuItemsViewController") as! MenuItemsViewController
         controller.categoryId = menuCategories[indexPath.row].id
+        controller.categoryName = menuCategories[indexPath.row].name
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
