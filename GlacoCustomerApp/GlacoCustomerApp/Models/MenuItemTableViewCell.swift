@@ -10,7 +10,6 @@ import UIKit
 class MenuItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var itemTitleLbl: UILabel!
-    @IBOutlet weak var itemDescLbl: UILabel!
     @IBOutlet weak var itemPriceLbl: UILabel!
     public var item : MenuItem!
 
@@ -24,7 +23,6 @@ class MenuItemTableViewCell: UITableViewCell {
         currencyFormatter.numberStyle = .currency
         
         itemTitleLbl.text = item!.name
-        itemDescLbl.text = item!.description
         itemPriceLbl.text = currencyFormatter.string(from: NSNumber(value: item!.price))!
     }
 

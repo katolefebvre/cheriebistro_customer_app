@@ -21,7 +21,7 @@ class MenuItemsViewController: UIViewController {
         categoryNameLbl.text = categoryName
         items = DatabaseAccess.getMenuItemsForCategory(categoryId: categoryId)
         itemsTableView.backgroundColor = .darkGray
-        itemsTableView.rowHeight = 100
+        itemsTableView.rowHeight = 80
         
         if items.count == 0 {
             let emptyItemsAlertController = UIAlertController(title: "No Items Available", message: "No items for this category are available at this time.", preferredStyle: .alert)
@@ -48,5 +48,14 @@ extension MenuItemsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.item = items[indexPath.row]
         cell.configure()
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cartModalViewController = segue.destination as? CartModalViewController,
+              let index = itemsTableView.indexPathForSelectedRow?.row
+        else {
+            return
+        }
+        cartModalViewController.menuItem = items[index]
     }
 }
