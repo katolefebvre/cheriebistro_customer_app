@@ -26,6 +26,7 @@ class CartModalViewController: UIViewController {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
+        currencyFormatter.currencySymbol = "$"
         
         qtyStepper.wraps = true
         qtyStepper.autorepeat = true
