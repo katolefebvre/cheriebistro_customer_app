@@ -17,6 +17,7 @@ class CartModalViewController: UIViewController {
     @IBOutlet weak var qtyLbl: UILabel!
     @IBOutlet weak var specialInstrucTxtField: UITextField!
     @IBOutlet weak var qtyStepper: UIStepper!
+    @IBOutlet weak var addToCartButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,4 +39,5 @@ class CartModalViewController: UIViewController {
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         qtyLbl.text = Int(sender.value).description
     }
+    
 }
