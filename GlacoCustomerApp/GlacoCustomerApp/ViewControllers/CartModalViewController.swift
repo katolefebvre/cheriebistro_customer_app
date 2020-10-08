@@ -17,7 +17,8 @@ class CartModalViewController: UIViewController {
     @IBOutlet weak var qtyLbl: UILabel!
     @IBOutlet weak var specialInstrucTxtField: UITextField!
     @IBOutlet weak var qtyStepper: UIStepper!
-    @IBOutlet weak var addToCartButton: UIButton!
+    
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,12 @@ class CartModalViewController: UIViewController {
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         qtyLbl.text = Int(sender.value).description
+    }
+    
+    @IBAction func addToCart(_ sender: UIButton){
+        mainDelegate.ShoppingCart.append(menuItem!)
+        print(mainDelegate.ShoppingCart)
+        performSegue(withIdentifier: "closeModal", sender: nil)
     }
     
 }

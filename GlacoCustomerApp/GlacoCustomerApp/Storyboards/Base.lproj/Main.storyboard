@@ -294,7 +294,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Add to Cart"/>
                                 <connections>
-                                    <segue destination="E06-2o-aZb" kind="unwind" unwindAction="doUnwindWithSegue:" id="GeQ-Ho-eBo"/>
+                                    <action selector="addToCart:" destination="mxU-id-ltt" eventType="touchUpInside" id="kEG-Qb-nVp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -303,13 +303,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="EfQ-xe-DhR"/>
                     <connections>
-                        <outlet property="addToCartButton" destination="juZ-SM-ex0" id="DQT-4r-iEe"/>
                         <outlet property="itemDescLbl" destination="fS0-cV-Sgg" id="bu9-j5-bya"/>
                         <outlet property="itemPriceLbl" destination="7jE-zF-pjv" id="VOc-A5-VvW"/>
                         <outlet property="itemTitleLbl" destination="mER-H1-ajM" id="hLl-5I-tG1"/>
                         <outlet property="qtyLbl" destination="daL-fJ-QOa" id="xP4-dc-2sk"/>
                         <outlet property="qtyStepper" destination="Hca-4i-fAT" id="ecS-PY-f2n"/>
                         <outlet property="specialInstrucTxtField" destination="cGG-fb-iCn" id="0yS-6G-nv4"/>
+                        <segue destination="E06-2o-aZb" kind="unwind" identifier="closeModal" unwindAction="doUnwindWithSegue:" id="R8c-gW-QlN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwK-g6-u8W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
