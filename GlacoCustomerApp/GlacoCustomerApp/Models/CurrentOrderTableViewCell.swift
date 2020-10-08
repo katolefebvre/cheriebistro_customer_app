@@ -42,7 +42,8 @@ class CurrentOrderTableViewCell: UITableViewCell {
         
         removeButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         removeButton.setTitle("Remove", for: .normal)
-        removeButton.setTitleColor(.black, for: .normal)
+        removeButton.setTitleColor(.systemRed, for: .normal)
+        removeButton.showsTouchWhenHighlighted = true
         
         contentView.addSubview(itemName)
         contentView.addSubview(itemDesc)

@@ -21,6 +21,7 @@ class MenuItemTableViewCell: UITableViewCell {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
+        currencyFormatter.currencySymbol = "$"
         
         itemTitleLbl.text = item!.name
         itemPriceLbl.text = currencyFormatter.string(from: NSNumber(value: item!.price))!

@@ -31,8 +31,7 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
             tableCell.itemDesc.text = mainDelegate.ShoppingCart[indexPath.row].description
             tableCell.removeButton.tag = indexPath.row
             tableCell.parentDelegate = self
-            
-            
+            tableCell.backgroundColor = .white
             
             tableCell.itemPrice.text = currencyFormatter.string(from: NSNumber(value: mainDelegate.ShoppingCart[indexPath.row].price))!
             tableCell.backgroundColor = .clear
