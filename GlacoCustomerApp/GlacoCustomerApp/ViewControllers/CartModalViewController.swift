@@ -9,7 +9,7 @@ import UIKit
 
 class CartModalViewController: UIViewController {
 
-    public var menuItem: MenuItem?
+    public var menuItem: MenuItem!
     
     @IBOutlet weak var itemTitleLbl: UILabel!
     @IBOutlet weak var itemDescLbl: UILabel!
@@ -36,6 +36,15 @@ class CartModalViewController: UIViewController {
         
         itemTitleLbl.text = menuItem?.name
         itemDescLbl.text = menuItem?.description
+//        if let found = (mainDelegate.tableOrder.items.contains(where: {$0.menuItem.id == menuItem.id})){
+//            specialInstrucTxtField.text =
+//        }
+        
+        if let found = mainDelegate.tableOrder.items.first(where: {$0.menuItem.id == menuItem.id}){
+            specialInstrucTxtField.text = found.specialInstructions
+            qtyStepper.value = Double(found.quantity)
+            qtyLbl.text = Int(qtyStepper.value).description
+            }
         itemPriceLbl.text = currencyFormatter.string(from: NSNumber(value: menuItem?.price ?? 0))
     }
     
@@ -43,8 +52,16 @@ class CartModalViewController: UIViewController {
         qtyLbl.text = Int(sender.value).description
     }
     
-    @IBAction func addToCart(_ sender: UIButton){
-        mainDelegate.tableOrder?.items.append(TableOrderItem(menuItem: menuItem!, itemModifications: specialInstrucTxtField.text ?? "", quantity: Int(qtyStepper!.value)))
-        performSegue(withIdentifier: "closeModal", sender: nil)
+    @IBAction func updateOrder(_ sender: UIButton){
+        if let found = mainDelegate.tableOrder.items.first(where: {$0.menuItem.id == menuItem.id}){
+            found.quantity = Int(qtyStepper.value)
+            found.specialInstructions = specialInstrucTxtField.text ?? ""
+        }
+        else{
+            if qtyStepper.value > 0{
+                mainDelegate.tableOrder?.items.append(TableOrderItem(menuItem: menuItem!, itemModifications: specialInstrucTxtField.text ?? "", quantity: Int(qtyStepper!.value)))
+            }
+        }
+        self.performSegue(withIdentifier: "unwindFromModal", sender: self)
     }
 }

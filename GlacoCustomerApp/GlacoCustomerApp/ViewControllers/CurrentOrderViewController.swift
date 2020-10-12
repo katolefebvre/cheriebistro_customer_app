@@ -9,9 +9,11 @@ import UIKit
 
 class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-    @IBOutlet var tableView : UITableView!
+        @IBOutlet var tableView : UITableView!
         @IBOutlet var noItemsMsg : UILabel!
-        @IBOutlet var totalPrice : UILabel!
+        @IBOutlet var totalPriceLbl : UILabel!
+        @IBOutlet var taxLbl : UILabel!
+        @IBOutlet var totalWithTaxLbl : UILabel!
         
         let mainDelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -59,14 +61,23 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
             }
         }
         
+        @IBAction func unwindFromModal(segue:UIStoryboardSegue) {
+        }
+    
         func updateTotal(){
             var total : Float = 0.0
+            var tax : Float = 0.0
+            //totalWithTaxLbl.text = currencyFormatter.string(from: NSNumber(value: 0))
             if !(mainDelegate.tableOrder?.items.isEmpty ?? true){
                 for item in mainDelegate.tableOrder!.items{
-                    total += item.menuItem.price
+                    total += item.menuItem.price * Float(item.quantity)
+                    tax += item.menuItem.price * Float(item.quantity) * 0.13
                 }
             }
-            totalPrice.text = currencyFormatter.string(from: NSNumber(value: total))!
+            mainDelegate.tableOrder.updateTotalWithTax()
+            totalWithTaxLbl.text = currencyFormatter.string(from: NSNumber(value: mainDelegate.tableOrder.totalWithTax))!
+            totalPriceLbl.text = currencyFormatter.string(from: NSNumber(value: total))!
+            taxLbl.text = currencyFormatter.string(from: NSNumber(value: tax))!
         }
 
         /*
@@ -78,7 +89,19 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
             // Pass the selected object to the new view controller.
         }
         */
-
+    
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard let cartModalViewController = segue.destination as? CartModalViewController,
+                  let index = tableView.indexPathForSelectedRow?.row
+            else {
+                return
+            }
+            cartModalViewController.menuItem = mainDelegate.tableOrder.items[index].menuItem
+        }
+    
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            performSegue(withIdentifier: "orderToCartModal", sender: self)
+        }
     }
 
     protocol ParentControllerDelegate{
@@ -92,3 +115,4 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
             updateTotal()
         }
 }
+

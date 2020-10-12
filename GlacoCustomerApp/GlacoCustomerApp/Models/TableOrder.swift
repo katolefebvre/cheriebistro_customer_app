@@ -23,7 +23,7 @@ class TableOrder: NSObject {
     func updateTotalWithTax(){
         totalWithTax = 0
         for item in items{
-            totalWithTax += item.menuItem.price * 1.13
+            totalWithTax += item.menuItem.price * 1.13 * Float(item.quantity)
         }
     }
 }

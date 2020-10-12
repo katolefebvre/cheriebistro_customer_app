@@ -35,6 +35,9 @@ class MenuItemsViewController: UIViewController {
     
     @IBAction func doUnwind(segue:UIStoryboardSegue) {
     }
+    
+    @IBAction func unwindFromModal(segue:UIStoryboardSegue) {
+    }
 }
 
 extension MenuItemsViewController: UITableViewDelegate, UITableViewDataSource {

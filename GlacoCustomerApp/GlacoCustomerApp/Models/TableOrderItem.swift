@@ -10,12 +10,12 @@ import UIKit
 class TableOrderItem: NSObject {
 
     var menuItem : MenuItem!
-    var itemModifications : String
+    var specialInstructions : String
     var quantity : Int
     
     init(menuItem: MenuItem, itemModifications : String, quantity: Int) {
         self.menuItem = menuItem
-        self.itemModifications = itemModifications
+        self.specialInstructions = itemModifications
         self.quantity = quantity
     }
 }
