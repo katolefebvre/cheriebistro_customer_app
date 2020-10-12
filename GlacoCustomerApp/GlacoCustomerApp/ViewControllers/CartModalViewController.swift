@@ -28,7 +28,8 @@ class CartModalViewController: UIViewController {
         currencyFormatter.numberStyle = .currency
         currencyFormatter.currencySymbol = "$"
         
-        qtyStepper.wraps = true
+        qtyStepper.value = 1
+        qtyStepper.wraps = false
         qtyStepper.autorepeat = true
         qtyStepper.maximumValue = 10
 
