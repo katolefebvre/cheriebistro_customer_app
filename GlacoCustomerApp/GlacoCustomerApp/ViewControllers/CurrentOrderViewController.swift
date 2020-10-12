@@ -61,7 +61,7 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         
         func updateTotal(){
             var total : Float = 0.0
-            if mainDelegate.tableOrder?.items.isEmpty ?? true{
+            if !(mainDelegate.tableOrder?.items.isEmpty ?? true){
                 for item in mainDelegate.tableOrder!.items{
                     total += item.menuItem.price
                 }
