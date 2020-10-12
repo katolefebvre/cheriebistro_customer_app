@@ -60,7 +60,7 @@ class CurrentOrderTableViewCell: UITableViewCell {
         itemName.frame = CGRect(x: 15, y:10, width: 525, height: 30)
         itemDesc.frame = CGRect(x: 550, y: 17, width: 250, height: 20)
         itemPrice.frame = CGRect(x: 950, y: 17, width: 270, height: 20)
-        removeButton.frame = CGRect(x: 1250, y: 10, width: 75, height: 30)
+        removeButton.frame = CGRect(x: 1245, y: 10, width: 75, height: 30)
     }
     
     required init?(coder aDecoder: NSCoder) {

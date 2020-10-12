@@ -37,9 +37,7 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
             tableCell.removeButton.tag = indexPath.row
             tableCell.parentDelegate = self
             tableCell.backgroundColor = .white
-            
-            tableCell.itemPrice.text = currencyFormatter.string(from: NSNumber(value: price))! + " x" + quantity
-            tableCell.backgroundColor = .clear
+            tableCell.itemPrice.text = currencyFormatter.string(from: NSNumber(value: price))! + " x" + quantity + "    " + currencyFormatter.string(from: NSNumber(value: price * Float(quantity)!))!
             return tableCell
         }
         
