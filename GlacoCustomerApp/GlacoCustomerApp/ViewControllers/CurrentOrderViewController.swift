@@ -30,6 +30,7 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CurrentOrderTableViewCell ?? CurrentOrderTableViewCell(style: .default, reuseIdentifier: "cell")
             tableCell.itemName.text = mainDelegate.tableOrder.items[indexPath.row].menuItem.name
+            tableCell.itemName.text! += " x" + mainDelegate.tableOrder.items[indexPath.row].quantity.description
             tableCell.itemDesc.text = mainDelegate.tableOrder.items[indexPath.row].menuItem.description
             tableCell.removeButton.tag = indexPath.row
             tableCell.parentDelegate = self
@@ -64,6 +65,7 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         @IBAction func unwindFromModal(segue:UIStoryboardSegue) {
             updateNoItemMsg()
             updateTotal()
+            tableView.reloadData()
         }
     
         func updateTotal(){
