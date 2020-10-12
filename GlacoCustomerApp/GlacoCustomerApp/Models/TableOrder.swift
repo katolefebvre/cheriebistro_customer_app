@@ -8,12 +8,12 @@
 import UIKit
 
 class TableOrder: NSObject {
-    var tableId : Int
+    var tableId : String
     var status : String
     var items : [TableOrderItem]
     var totalWithTax: Float
     
-    init(tableId : Int) {
+    init(tableId : String) {
         self.tableId = tableId
         self.status = "Not Submitted"
         self.items = []

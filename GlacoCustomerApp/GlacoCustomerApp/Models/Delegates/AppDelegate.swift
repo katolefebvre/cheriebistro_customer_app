@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var loggedTable: Table?
     var ShoppingCart: [MenuItem] = []
+    var tableOrder: TableOrder!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

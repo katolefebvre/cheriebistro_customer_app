@@ -18,7 +18,7 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         let currencyFormatter = NumberFormatter()
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return mainDelegate.ShoppingCart.count
+            return mainDelegate.tableOrder.items.count
         }
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -27,13 +27,13 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CurrentOrderTableViewCell ?? CurrentOrderTableViewCell(style: .default, reuseIdentifier: "cell")
-            tableCell.itemName.text = mainDelegate.ShoppingCart[indexPath.row].name
-            tableCell.itemDesc.text = mainDelegate.ShoppingCart[indexPath.row].description
+            tableCell.itemName.text = mainDelegate.tableOrder.items[indexPath.row].menuItem.name
+            tableCell.itemDesc.text = mainDelegate.tableOrder.items[indexPath.row].menuItem.description
             tableCell.removeButton.tag = indexPath.row
             tableCell.parentDelegate = self
             tableCell.backgroundColor = .white
             
-            tableCell.itemPrice.text = currencyFormatter.string(from: NSNumber(value: mainDelegate.ShoppingCart[indexPath.row].price))!
+            tableCell.itemPrice.text = currencyFormatter.string(from: NSNumber(value: mainDelegate.tableOrder.items[indexPath.row].menuItem.price))!
             tableCell.backgroundColor = .clear
             return tableCell
         }
@@ -51,7 +51,7 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
         func updateNoItemMsg(){
-            if mainDelegate.ShoppingCart.isEmpty{
+            if mainDelegate.tableOrder?.items.isEmpty ?? true{
                 noItemsMsg.isHidden = false
             }
             else{
@@ -61,8 +61,10 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         
         func updateTotal(){
             var total : Float = 0.0
-            for item in mainDelegate.ShoppingCart{
-                total += item.price
+            if mainDelegate.tableOrder?.items.isEmpty ?? true{
+                for item in mainDelegate.tableOrder!.items{
+                    total += item.menuItem.price
+                }
             }
             totalPrice.text = currencyFormatter.string(from: NSNumber(value: total))!
         }

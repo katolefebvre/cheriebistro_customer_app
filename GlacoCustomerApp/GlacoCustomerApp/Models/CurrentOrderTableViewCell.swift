@@ -52,7 +52,7 @@ class CurrentOrderTableViewCell: UITableViewCell {
     }
     
     @objc func buttonAction(sender: UIButton!) {
-        mainDelegate.ShoppingCart.remove(at: sender.tag)
+        mainDelegate.tableOrder.items.remove(at: sender.tag)
         self.parentDelegate?.requestReloadTable()
     }
 

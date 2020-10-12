@@ -43,7 +43,7 @@ class CartModalViewController: UIViewController {
     }
     
     @IBAction func addToCart(_ sender: UIButton){
-        mainDelegate.ShoppingCart.append(menuItem!)
+        mainDelegate.tableOrder?.items.append(TableOrderItem(menuItem: menuItem!, itemModifications: "", quantity: 1))
         print(mainDelegate.ShoppingCart)
         performSegue(withIdentifier: "closeModal", sender: nil)
     }

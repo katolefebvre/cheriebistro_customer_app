@@ -39,6 +39,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return count <= 10
     }
     
+    // This method is to be used only until the below method (with Table-exists-in-Database verification) is functional.
+    @IBAction func TEMPORARYloginBtnPressed(_ sender: AnyObject) {
+        let tableId = tableIdTextField.text;
+        if tableId!.isEmpty {
+            return
+        }
+        mainDelegate.tableOrder = TableOrder(tableId: tableId!)
+    }
+    
     @IBAction func loginBtnPressed(_ sender: AnyObject) {
         
         let tableId = tableIdTextField.text;
@@ -48,6 +57,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         if let foundTable = DatabaseAccess.loginTable(loginId: tableId!) {
             mainDelegate.loggedTable = foundTable
+            mainDelegate.tableOrder = TableOrder(tableId: foundTable.id)
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "loginView", sender: nil)
             }

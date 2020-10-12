@@ -61,6 +61,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
+                                    <action selector="TEMPORARYloginBtnPressed:" destination="ymr-nm-U74" eventType="touchUpInside" id="Dk2-5d-18i"/>
                                     <segue destination="GHE-26-CjQ" kind="show" identifier="loginView" id="P3t-iS-YYn"/>
                                 </connections>
                             </button>
