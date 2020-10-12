@@ -29,14 +29,16 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CurrentOrderTableViewCell ?? CurrentOrderTableViewCell(style: .default, reuseIdentifier: "cell")
-            tableCell.itemName.text = mainDelegate.tableOrder.items[indexPath.row].menuItem.name
-            tableCell.itemName.text! += " x" + mainDelegate.tableOrder.items[indexPath.row].quantity.description
-            tableCell.itemDesc.text = mainDelegate.tableOrder.items[indexPath.row].menuItem.description
+            
+            let quantity = mainDelegate.tableOrder.items[indexPath.row].quantity.description
+            let price = mainDelegate.tableOrder.items[indexPath.row].menuItem.price
+            tableCell.itemName.text = mainDelegate.tableOrder.items[indexPath.row].menuItem.name + " x" + quantity
+            tableCell.itemDesc.text = "Tap here to view and edit details."
             tableCell.removeButton.tag = indexPath.row
             tableCell.parentDelegate = self
             tableCell.backgroundColor = .white
             
-            tableCell.itemPrice.text = currencyFormatter.string(from: NSNumber(value: mainDelegate.tableOrder.items[indexPath.row].menuItem.price))!
+            tableCell.itemPrice.text = currencyFormatter.string(from: NSNumber(value: price))! + " x" + quantity
             tableCell.backgroundColor = .clear
             return tableCell
         }

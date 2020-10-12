@@ -31,9 +31,9 @@ class CurrentOrderTableViewCell: UITableViewCell {
         itemDesc.textAlignment = .left
         itemDesc.font = UIFont.boldSystemFont(ofSize: 16)
         itemDesc.backgroundColor = .clear
-        itemDesc.textColor = .black
+        itemDesc.textColor = #colorLiteral(red: 0.257164783, green: 0.257164783, blue: 0.257164783, alpha: 1)
         
-        itemPrice.textAlignment = .left
+        itemPrice.textAlignment = .right
         itemPrice.font = UIFont.boldSystemFont(ofSize: 16)
         itemPrice.backgroundColor = .clear
         itemPrice.textColor = .black
@@ -57,9 +57,9 @@ class CurrentOrderTableViewCell: UITableViewCell {
     }
 
     override func layoutSubviews() {
-        itemName.frame = CGRect(x: 15, y:10, width: 280, height: 30)
-        itemDesc.frame = CGRect(x: 305, y: 17, width: 830, height: 20)
-        itemPrice.frame = CGRect(x: 1150, y: 17, width: 90, height: 20)
+        itemName.frame = CGRect(x: 15, y:10, width: 525, height: 30)
+        itemDesc.frame = CGRect(x: 550, y: 17, width: 250, height: 20)
+        itemPrice.frame = CGRect(x: 950, y: 17, width: 270, height: 20)
         removeButton.frame = CGRect(x: 1250, y: 10, width: 75, height: 30)
     }
     
