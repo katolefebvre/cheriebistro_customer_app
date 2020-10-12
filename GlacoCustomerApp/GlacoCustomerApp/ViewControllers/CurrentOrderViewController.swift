@@ -62,6 +62,8 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
         @IBAction func unwindFromModal(segue:UIStoryboardSegue) {
+            updateNoItemMsg()
+            updateTotal()
         }
     
         func updateTotal(){
