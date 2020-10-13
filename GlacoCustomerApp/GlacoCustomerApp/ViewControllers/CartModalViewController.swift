@@ -54,8 +54,13 @@ class CartModalViewController: UIViewController {
     
     @IBAction func updateOrder(_ sender: UIButton){
         if let found = mainDelegate.tableOrder.items.first(where: {$0.menuItem.id == menuItem.id}){
-            found.quantity = Int(qtyStepper.value)
-            found.specialInstructions = specialInstrucTxtField.text ?? ""
+            if qtyStepper.value == 0 {
+                mainDelegate.tableOrder.items.remove(at: mainDelegate.tableOrder.items.firstIndex(of: found)!)
+            }
+            else{
+                found.quantity = Int(qtyStepper.value)
+                found.specialInstructions = specialInstrucTxtField.text ?? ""
+            }
         }
         else{
             if qtyStepper.value > 0{
