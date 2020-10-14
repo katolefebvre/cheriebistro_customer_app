@@ -226,4 +226,93 @@ class DatabaseAccess {
         _ = semaphore.wait(wallTimeout: .distantFuture)
         return table
     }
+    
+    
+    /// Adds order to the database
+    /// - Parameter order: The order to be saved
+    /// - Returns: The ID of the order saved to the database
+    class func addOrder(order : TableOrder) -> Int? {
+        var result : Int?
+
+        let address = URL(string: "http://142.55.32.86:50131/cheriebistro/cheriebistro/api/addOrder.php")!
+        let request = NSMutableURLRequest(url: address)
+        request.httpMethod = "POST"
+        let semaphore = DispatchSemaphore(value: 0)
+
+        var dataString = "table_id=\(order.tableId)"
+        dataString = dataString + "&price_total=\(order.totalWithTax)"
+        dataString = dataString + "&status=Pending"
+        
+        request.httpBody = dataString.data(using: String.Encoding.utf8)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            if error != nil {
+                print("error")
+                semaphore.signal()
+                return
+            }
+            do {
+                var orderJSON: NSDictionary!
+                orderJSON = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+
+                if let parseJSON = orderJSON {
+                    let error: String = parseJSON["error"] as! String
+
+                    if error == "false" {
+                        result = Int(parseJSON["addedId"] as! String) ?? 0
+                    }
+                } else {
+                    return
+                }
+            } catch {
+                print(error)
+            }
+            semaphore.signal()
+        }
+        task.resume()
+        _ = semaphore.wait(wallTimeout: .distantFuture)
+        return result
+        }
+    
+    class func addOrderItem(item : TableOrderItem, orderID : Int) -> [String : String] {
+        var results : [String : String] = [:]
+
+        let address = URL(string: "http://142.55.32.86:50131/cheriebistro/cheriebistro/api/addOrderItem.php")!
+        let url = NSMutableURLRequest(url: address)
+        url.httpMethod = "POST"
+        let semaphore = DispatchSemaphore(value: 0)
+
+        var dataString = "menu_item_id=\(item.menuItem.id)"
+        dataString = dataString + "&item_modification=\(item.specialInstructions)"
+        dataString = dataString + "&quantity=\(item.quantity)"
+        dataString = dataString + "&order_id=\(orderID)"
+
+        let dataD = dataString.data(using: .utf8)
+
+        do {
+                   let uploadJob = URLSession.shared.uploadTask(with: url as URLRequest, from: dataD) {
+                       data, response, error in
+                       if error != nil {
+                           print(error!)
+                           semaphore.signal()
+                           return
+                       } else {
+                        if let unwrappedData = data{
+                            
+                               let jsonResponse = try! JSONSerialization.jsonObject(with: unwrappedData, options: [])
+                               guard let jsonArray = jsonResponse as? [String: String] else {
+                                   semaphore.signal()
+                                   return
+                               }
+                            results = jsonArray
+                           }
+                       }
+                       semaphore.signal()
+                   }
+                   uploadJob.resume()
+               }
+        _ = semaphore.wait(wallTimeout: .distantFuture)
+        return results
+    }
 }
