@@ -36,9 +36,6 @@ class CartModalViewController: UIViewController {
         
         itemTitleLbl.text = menuItem?.name
         itemDescLbl.text = menuItem?.description
-//        if let found = (mainDelegate.tableOrder.items.contains(where: {$0.menuItem.id == menuItem.id})){
-//            specialInstrucTxtField.text =
-//        }
         
         if let found = mainDelegate.tableOrder.items.first(where: {$0.menuItem.id == menuItem.id}){
             specialInstrucTxtField.text = found.specialInstructions
@@ -46,6 +43,10 @@ class CartModalViewController: UIViewController {
             qtyLbl.text = Int(qtyStepper.value).description
             }
         itemPriceLbl.text = currencyFormatter.string(from: NSNumber(value: menuItem?.price ?? 0))
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {

@@ -14,6 +14,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tableIdTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginBtn.isEnabled = false
