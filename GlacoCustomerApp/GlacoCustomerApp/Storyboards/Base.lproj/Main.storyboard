@@ -367,6 +367,7 @@
                     <navigationItem key="navigationItem" id="TCO-nA-ea0"/>
                     <connections>
                         <outlet property="noItemsMsg" destination="AxA-Lc-vAh" id="BMw-9g-r4f"/>
+                        <outlet property="submitOrderButton" destination="azf-no-s8r" id="eeh-Xa-cLz"/>
                         <outlet property="tableView" destination="Vee-Iu-MLy" id="FAW-Pr-bfU"/>
                         <outlet property="taxLbl" destination="nqB-RK-wz6" id="Cdl-Pb-M2f"/>
                         <outlet property="totalPriceLbl" destination="fCh-9m-caE" id="p0Y-D6-8Ya"/>
@@ -472,7 +473,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zyg-bk-ip7"/>
+        <segue reference="QXZ-PJ-Jq7"/>
         <segue reference="pGd-V6-xKI"/>
     </inferredMetricsTieBreakers>
 </document>
