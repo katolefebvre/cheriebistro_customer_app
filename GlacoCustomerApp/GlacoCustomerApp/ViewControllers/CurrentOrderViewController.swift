@@ -14,6 +14,7 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         @IBOutlet var totalPriceLbl : UILabel!
         @IBOutlet var taxLbl : UILabel!
         @IBOutlet var totalWithTaxLbl : UILabel!
+        @IBOutlet var submitOrderButton : UIButton!
         
         let mainDelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -48,8 +49,11 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
             currencyFormatter.numberStyle = .currency
             currencyFormatter.currencySymbol = "$"
             
+            submitOrderButton.setTitleColor(.lightGray, for: .disabled)
+            
             updateNoItemMsg()
             updateTotal()
+            updateSubmitButton()
             // Do any additional setup after loading the view.
         }
         
@@ -65,6 +69,7 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
         @IBAction func unwindFromModal(segue:UIStoryboardSegue) {
             updateNoItemMsg()
             updateTotal()
+            updateSubmitButton()
             tableView.reloadData()
         }
     
@@ -83,6 +88,15 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
             totalPriceLbl.text = currencyFormatter.string(from: NSNumber(value: total))!
             taxLbl.text = currencyFormatter.string(from: NSNumber(value: tax))!
         }
+    
+    func updateSubmitButton(){
+        if mainDelegate.tableOrder.items.isEmpty{
+            submitOrderButton.isEnabled = false
+        }
+        else{
+            submitOrderButton.isEnabled = true
+        }
+    }
 
         /*
         // MARK: - Navigation
@@ -117,6 +131,7 @@ class CurrentOrderViewController: UIViewController,UITableViewDelegate,UITableVi
             self.tableView.reloadData()
             updateNoItemMsg()
             updateTotal()
+            updateSubmitButton()
         }
 }
 
