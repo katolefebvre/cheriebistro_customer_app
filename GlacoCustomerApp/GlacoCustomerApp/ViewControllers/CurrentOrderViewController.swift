@@ -59,7 +59,7 @@ class CurrentOrderViewController: UIViewController, UITableViewDelegate, UITable
     
     func updateNoItemMsg(){
         if mainDelegate.tableOrder?.items.isEmpty ?? true{
-            noItemsMsg.isHidden = false
+            noItemsMsg.isHidden = false //if order empty no item message shown (not hidden)
         }
         else{
             noItemsMsg.isHidden = true
@@ -111,8 +111,8 @@ class CurrentOrderViewController: UIViewController, UITableViewDelegate, UITable
     func updateTotal(){
         var total : Float = 0.0
         var tax : Float = 0.0
-        //totalWithTaxLbl.text = currencyFormatter.string(from: NSNumber(value: 0))
-        if !(mainDelegate.tableOrder?.items.isEmpty ?? true){
+       
+        if !(mainDelegate.tableOrder?.items.isEmpty ?? true){ // if order is not empty
             for item in mainDelegate.tableOrder!.items{
                 total += item.menuItem.price * Float(item.quantity)
                 tax += item.menuItem.price * Float(item.quantity) * 0.13
