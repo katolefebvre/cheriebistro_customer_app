@@ -10,10 +10,10 @@ import Foundation
 public class Table {
     
     let id: String
-    let name: String
+    let employeeId: String
     
-    init(id: String, name: String) {
+    init(id: String, employeeId: String) {
         self.id = id
-        self.name = name
+        self.employeeId = employeeId
     }
 }

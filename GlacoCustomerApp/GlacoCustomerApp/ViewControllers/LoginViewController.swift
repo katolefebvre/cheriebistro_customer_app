@@ -7,12 +7,17 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    @IBOutlet weak var tableIdTextField: UITextField!
+    @IBOutlet weak var employeeIdTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var tablesList: UITableView!
+    let tableSections : Int = 1
+    
+    var availableTables : [Table] = []
+    var chosenTableID : String = ""
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
@@ -20,17 +25,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginBtn.isEnabled = false
-    }
-    
-    @IBAction func onIdTextFieldChange(_ sender: Any) {
-        let checkString : String = (tableIdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
-        if checkString.isEmpty {
-            loginBtn.isEnabled = false
-        }
-        else {
-            loginBtn.isEnabled = true
-        }
+        
+        tablesList.delegate = self
+        tablesList.dataSource = self
+        
+        availableTables = DatabaseAccess.getAvailableTables()
+        tablesList.reloadData()
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -43,36 +44,55 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return count <= 10
     }
     
-    // This method is to be used only until the below method (with Table-exists-in-Database verification) is functional.
-    @IBAction func TEMPORARYloginBtnPressed(_ sender: AnyObject) {
-        let tableId = tableIdTextField.text;
-        if tableId!.isEmpty {
-            return
-        }
-        mainDelegate.tableOrder = TableOrder(tableId: tableId!)
-    }
-    
     @IBAction func loginBtnPressed(_ sender: AnyObject) {
         
-        let tableId = tableIdTextField.text;
-        
-        if tableId!.isEmpty {
+        let employeeId = employeeIdTextField.text!;
+        if employeeId.isEmpty {
             return
         }
-        if let foundTable = DatabaseAccess.loginTable(loginId: tableId!) {
-            mainDelegate.loggedTable = foundTable
-            mainDelegate.tableOrder = TableOrder(tableId: foundTable.id)
+        
+        if chosenTableID.isEmpty {
+            return
+        }
+        
+        let foundTable = DatabaseAccess.registerTable(tableId: chosenTableID, employeeId: employeeId)
+        if foundTable.1 == "" {
+            mainDelegate.loggedTable = foundTable.0
+            mainDelegate.tableOrder = TableOrder(tableId: foundTable.0!.id)
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "loginView", sender: nil)
             }
         } else {
-            let alertController = UIAlertController(title: "Error", message: "Invalid Table ID", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Error", message: foundTable.1, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
             self.present(alertController, animated: true)
+            
+            tablesList.reloadData()
         }
-        
-        tableIdTextField.text = ""
-        loginBtn.isEnabled = false
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return availableTables.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell") ?? UITableViewCell()
+        let index = indexPath.row
+        
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 25)
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.systemBlue
+        cell.selectedBackgroundView = backgroundView
+        
+        cell.textLabel?.text = "Table \(availableTables[index].id)"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        chosenTableID = availableTables[index].id
+    }
+    
 }

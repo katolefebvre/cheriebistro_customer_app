@@ -183,14 +183,15 @@ class DatabaseAccess {
     
     // not sure if needed yet
     /// Retrieves the Table information stored in the database for a particular Table and returns it if the Table exists.
-    class func loginTable(loginId: String) -> Table? {
-        var table: Table?
+    class func registerTable(tableId: String, employeeId : String) -> (Table?, String) {
+        var tableResult: (Table?, String) = (nil, "")
         let myUrl = URL(string: "http://142.55.32.86:50131/cheriebistro/cheriebistro/api/loginTable.php")!
         let request = NSMutableURLRequest(url: myUrl)
         request.httpMethod = "POST"
         let semaphore = DispatchSemaphore(value: 0)
 
-        let postString = "tableID=\(loginId)"
+        var postString = "tableID=\(tableId)"
+        postString = postString + "&employeeID=\(employeeId)"
         request.httpBody = postString.data(using: String.Encoding.utf8)
 
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
@@ -209,10 +210,9 @@ class DatabaseAccess {
                     print("result: \(response)")
 
                     if response == "Success" {
-                        let tableId: String = LoginJSON["tableID"] as! String
-                        let tableName: String = LoginJSON["tableName"] as! String
-
-                        table = Table(id: tableId, name: tableName)
+                        tableResult = (Table(id: tableId, employeeId: employeeId), "")
+                    } else {
+                        tableResult.1 = parseJSON["message"] as! String
                     }
                 } else {
                     return
@@ -224,7 +224,43 @@ class DatabaseAccess {
         }
         task.resume()
         _ = semaphore.wait(wallTimeout: .distantFuture)
-        return table
+        return tableResult
+    }
+    
+    class func getAvailableTables() -> [Table] {
+        var tables : [Table] = []
+        let url = URL(string: "http://142.55.32.86:50131/cheriebistro/cheriebistro/api/getAvailableTables.php")!
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "GET"
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil {
+                print("error")
+                return
+            }
+            
+            do {
+                var tableJSON : NSDictionary!
+                tableJSON = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                let tablesArray : NSArray = tableJSON["tables"] as! NSArray
+                
+                for table in tablesArray {
+                    if let t = table as? [String : Any] {
+                        tables.append(Table(id: t["tableID"]! as! String, employeeId : ""))
+                    }
+                }
+            } catch {
+                print(error)
+            }
+            semaphore.signal()
+        }
+        
+        task.resume()
+        _ = semaphore.wait(wallTimeout: .distantFuture)
+        return tables
     }
     
     
