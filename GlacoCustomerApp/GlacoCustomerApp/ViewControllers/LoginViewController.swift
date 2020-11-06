@@ -29,9 +29,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UITableViewDel
         tablesList.delegate = self
         tablesList.dataSource = self
         
+        loadTablesList()
+        
+    }
+    
+    private func loadTablesList() {
         availableTables = DatabaseAccess.getAvailableTables()
         tablesList.reloadData()
-        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -74,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UITableViewDel
             alertController.message = foundTable.1
             self.present(alertController, animated: true, completion: nil)
             
-            tablesList.reloadData()
+            loadTablesList()
         }
     }
     
