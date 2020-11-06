@@ -46,12 +46,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UITableViewDel
     
     @IBAction func loginBtnPressed(_ sender: AnyObject) {
         
+        let alertController = UIAlertController(title: "Error", message: "", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
         let employeeId = employeeIdTextField.text!;
         if employeeId.isEmpty {
+            alertController.message = "An employee ID is required, please try again."
+            self.present(alertController, animated: true, completion: nil)
             return
         }
         
         if chosenTableID.isEmpty {
+            alertController.message = "A Table is required, please try again."
+            self.present(alertController, animated: true, completion: nil)
             return
         }
         
@@ -63,10 +71,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UITableViewDel
                 self.performSegue(withIdentifier: "loginView", sender: nil)
             }
         } else {
-            let alertController = UIAlertController(title: "Error", message: foundTable.1, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            self.present(alertController, animated: true)
+            alertController.message = foundTable.1
+            self.present(alertController, animated: true, completion: nil)
             
             tablesList.reloadData()
         }
