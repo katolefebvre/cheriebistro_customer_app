@@ -181,8 +181,11 @@ class DatabaseAccess {
         return results
     }
     
-    // not sure if needed yet
     /// Retrieves the Table information stored in the database for a particular Table and returns it if the Table exists.
+    /// - Parameters:
+    ///   - tableId: The ID of the table to register
+    ///   - employeeId: The ID of the employee to register
+    /// - Returns: Tuple of the successfully registered Table and a String error message (if applicable)
     class func registerTable(tableId: String, employeeId : String) -> (Table?, String) {
         var tableResult: (Table?, String) = (nil, "")
         let myUrl = URL(string: "http://142.55.32.86:50131/cheriebistro/cheriebistro/api/loginTable.php")!
@@ -227,6 +230,9 @@ class DatabaseAccess {
         return tableResult
     }
     
+    
+    /// Obtains all the available tables in the database (not currently in use by an employee)
+    /// - Returns: An array of all tables with no associated Employee ID
     class func getAvailableTables() -> [Table] {
         var tables : [Table] = []
         let url = URL(string: "http://142.55.32.86:50131/cheriebistro/cheriebistro/api/getAvailableTables.php")!
@@ -310,6 +316,7 @@ class DatabaseAccess {
         _ = semaphore.wait(wallTimeout: .distantFuture)
         return result
         }
+    
     
     class func addOrderItem(item : TableOrderItem, orderID : Int) -> [String : String] {
         var results : [String : String] = [:]
