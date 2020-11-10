@@ -56,15 +56,6 @@
                                     <outlet property="delegate" destination="ymr-nm-U74" id="IEk-g0-tXt"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6J3-6H-qIa">
-                                <rect key="frame" x="558" y="802" width="251" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Register Table"/>
-                                <connections>
-                                    <action selector="loginBtnPressed:" destination="ymr-nm-U74" eventType="touchUpInside" id="ijR-2F-eKe"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Table #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcP-a7-nkj">
                                 <rect key="frame" x="558" y="423" width="251" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -87,6 +78,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6J3-6H-qIa" customClass="GlacoButton" customModule="GlacoCustomerApp" customModuleProvider="target">
+                                <rect key="frame" x="547" y="794" width="273" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Register Table"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginBtnPressed:" destination="ymr-nm-U74" eventType="touchUpInside" id="ijR-2F-eKe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WQg-7j-ExN"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -493,6 +496,11 @@
             <point key="canvasLocation" x="1096.7789165446559" y="779.8828125"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="6J3-6H-qIa">
+            <size key="intrinsicContentSize" width="152" height="42"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="QXZ-PJ-Jq7"/>
         <segue reference="pGd-V6-xKI"/>

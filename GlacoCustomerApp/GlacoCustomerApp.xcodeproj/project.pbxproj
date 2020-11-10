@@ -32,6 +32,7 @@
 		AE43542B253458DF00F75EE3 /* TableOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE43542A253458DF00F75EE3 /* TableOrderItem.swift */; };
 		AE8DDFA2252F7C320094D532 /* CurrentOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DDFA1252F7C320094D532 /* CurrentOrderViewController.swift */; };
 		AE8DDFA4252F7CDD0094D532 /* CurrentOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DDFA3252F7CDD0094D532 /* CurrentOrderTableViewCell.swift */; };
+		CDFAA78E255B545200DFC04B /* GlacoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFAA78D255B545200DFC04B /* GlacoButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		AE43542A253458DF00F75EE3 /* TableOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOrderItem.swift; sourceTree = "<group>"; };
 		AE8DDFA1252F7C320094D532 /* CurrentOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOrderViewController.swift; sourceTree = "<group>"; };
 		AE8DDFA3252F7CDD0094D532 /* CurrentOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOrderTableViewCell.swift; sourceTree = "<group>"; };
+		CDFAA78D255B545200DFC04B /* GlacoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlacoButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		7D385158251C41E900FFF012 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CDFAA78C255B544000DFC04B /* UI Elements */,
 				7D385159251C41FB00FFF012 /* Delegates */,
 				7D38515A251C42BD00FFF012 /* DatabaseAccess.swift */,
 				7D38515D251C42F100FFF012 /* TimeSlot.swift */,
@@ -171,6 +174,14 @@
 				7DAD3F1A251FE771006C85FF /* QuartzCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDFAA78C255B544000DFC04B /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CDFAA78D255B545200DFC04B /* GlacoButton.swift */,
+			);
+			path = "UI Elements";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 				7D2C664F252D753C0052FB96 /* CartModalViewController.swift in Sources */,
 				AE43542B253458DF00F75EE3 /* TableOrderItem.swift in Sources */,
 				7D385164251C434C00FFF012 /* Category.swift in Sources */,
+				CDFAA78E255B545200DFC04B /* GlacoButton.swift in Sources */,
 				AE8DDFA4252F7CDD0094D532 /* CurrentOrderTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
