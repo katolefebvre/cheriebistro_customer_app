@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-1000" y="74"/>
         </scene>
-        <!--Login-->
+        <!--Register-->
         <scene sceneID="fe8-Kf-iav">
             <objects>
                 <viewController id="ymr-nm-U74" customClass="LoginViewController" customModule="GlacoCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,7 +94,7 @@
                         <viewLayoutGuide key="safeArea" id="WQg-7j-ExN"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="p7k-Ny-oIj"/>
+                    <navigationItem key="navigationItem" title="Register" id="p7k-Ny-oIj"/>
                     <connections>
                         <outlet property="employeeIdTextField" destination="i8Q-ZR-1GJ" id="guT-7r-PcT"/>
                         <outlet property="loginBtn" destination="6J3-6H-qIa" id="fa4-Wf-ikR"/>
