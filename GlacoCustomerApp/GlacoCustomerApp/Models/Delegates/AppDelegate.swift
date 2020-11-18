@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var loggedTable: Table?
     var tableOrder: TableOrder!
+    var orderHistory: [TableOrder]!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

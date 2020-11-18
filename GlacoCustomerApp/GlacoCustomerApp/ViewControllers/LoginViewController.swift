@@ -71,6 +71,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UITableViewDel
         if foundTable.1 == "" {
             mainDelegate.loggedTable = foundTable.0
             mainDelegate.tableOrder = TableOrder(tableId: foundTable.0!.id)
+            mainDelegate.orderHistory = []
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "loginView", sender: nil)
             }

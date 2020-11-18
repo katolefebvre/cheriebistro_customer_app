@@ -30,6 +30,8 @@
 		7DB0FF14252197800030065C /* burger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DB0FF13252197800030065C /* burger.jpg */; };
 		AE435429253458A200F75EE3 /* TableOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE435428253458A200F75EE3 /* TableOrder.swift */; };
 		AE43542B253458DF00F75EE3 /* TableOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE43542A253458DF00F75EE3 /* TableOrderItem.swift */; };
+		AE89686225640AAF0091F06D /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89686125640AAF0091F06D /* OrderHistoryViewController.swift */; };
+		AE896864256487460091F06D /* OrderHistoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE896863256487460091F06D /* OrderHistoryViewCell.swift */; };
 		AE8DDFA2252F7C320094D532 /* CurrentOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DDFA1252F7C320094D532 /* CurrentOrderViewController.swift */; };
 		AE8DDFA4252F7CDD0094D532 /* CurrentOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DDFA3252F7CDD0094D532 /* CurrentOrderTableViewCell.swift */; };
 		CDFAA78E255B545200DFC04B /* GlacoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFAA78D255B545200DFC04B /* GlacoButton.swift */; };
@@ -61,6 +63,8 @@
 		7DB0FF13252197800030065C /* burger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burger.jpg; sourceTree = "<group>"; };
 		AE435428253458A200F75EE3 /* TableOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOrder.swift; sourceTree = "<group>"; };
 		AE43542A253458DF00F75EE3 /* TableOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOrderItem.swift; sourceTree = "<group>"; };
+		AE89686125640AAF0091F06D /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
+		AE896863256487460091F06D /* OrderHistoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewCell.swift; sourceTree = "<group>"; };
 		AE8DDFA1252F7C320094D532 /* CurrentOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOrderViewController.swift; sourceTree = "<group>"; };
 		AE8DDFA3252F7CDD0094D532 /* CurrentOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOrderTableViewCell.swift; sourceTree = "<group>"; };
 		CDFAA78D255B545200DFC04B /* GlacoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlacoButton.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				7D7BB1A62522EAD400380A61 /* MenuItemsViewController.swift */,
 				7D2C664E252D753C0052FB96 /* CartModalViewController.swift */,
 				AE8DDFA1252F7C320094D532 /* CurrentOrderViewController.swift */,
+				AE89686125640AAF0091F06D /* OrderHistoryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				AE8DDFA3252F7CDD0094D532 /* CurrentOrderTableViewCell.swift */,
 				AE435428253458A200F75EE3 /* TableOrder.swift */,
 				AE43542A253458DF00F75EE3 /* TableOrderItem.swift */,
+				AE896863256487460091F06D /* OrderHistoryViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,12 +271,14 @@
 				7D144BB4251FD5E300D82011 /* Table.swift in Sources */,
 				7D385161251C433300FFF012 /* MenuItem.swift in Sources */,
 				7D144BB1251FA96F00D82011 /* LoginViewController.swift in Sources */,
+				AE89686225640AAF0091F06D /* OrderHistoryViewController.swift in Sources */,
 				7D38515B251C42BD00FFF012 /* DatabaseAccess.swift in Sources */,
 				7DB0FF112521936A0030065C /* CategoryCollectionViewCell.swift in Sources */,
 				AE435429253458A200F75EE3 /* TableOrder.swift in Sources */,
 				7D01BD38252110A300F91B4C /* DatabaseIdTableViewCell.swift in Sources */,
 				7D7BB1AC2522ECF400380A61 /* MenuItemTableViewCell.swift in Sources */,
 				7D385141251C414A00FFF012 /* SceneDelegate.swift in Sources */,
+				AE896864256487460091F06D /* OrderHistoryViewCell.swift in Sources */,
 				7D2C664F252D753C0052FB96 /* CartModalViewController.swift in Sources */,
 				AE43542B253458DF00F75EE3 /* TableOrderItem.swift in Sources */,
 				7D385164251C434C00FFF012 /* Category.swift in Sources */,

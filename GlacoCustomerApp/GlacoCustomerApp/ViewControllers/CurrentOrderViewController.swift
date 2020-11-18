@@ -15,6 +15,7 @@ class CurrentOrderViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var taxLbl : UILabel!
     @IBOutlet var totalWithTaxLbl : UILabel!
     @IBOutlet var submitOrderButton : UIButton!
+    @IBOutlet var orderHistoryButton : UIButton!
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -50,10 +51,13 @@ class CurrentOrderViewController: UIViewController, UITableViewDelegate, UITable
         currencyFormatter.currencySymbol = "$"
         
         submitOrderButton.setTitleColor(.lightGray, for: .disabled)
+        orderHistoryButton.setTitleColor(.lightGray, for: .disabled)
         
         updateNoItemMsg()
         updateTotal()
         updateSubmitButton()
+        updateOrderHistoryButton()
+      
         // Do any additional setup after loading the view.
     }
     
@@ -77,7 +81,7 @@ class CurrentOrderViewController: UIViewController, UITableViewDelegate, UITable
         else {
             let addAlert = UIAlertController(title: "Send Order", message: "Do you want to send the order?", preferredStyle: UIAlertController.Style.alert)
             
-            addAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action: UIAlertAction!) in
+            addAlert.addAction(UIAlertAction(title: "Send", style: .default, handler: { (action: UIAlertAction!) in
                 let result = DatabaseAccess.addOrder(order: orderToSave!)
                 if result == 0 {
                     DispatchQueue.main.async {
@@ -89,7 +93,9 @@ class CurrentOrderViewController: UIViewController, UITableViewDelegate, UITable
                     for item in orderToSave!.items {
                         _ = DatabaseAccess.addOrderItem(item: item, orderID: result!)
                     }
-                    
+                    self.mainDelegate.orderHistory.append(orderToSave!)
+                    self.mainDelegate.tableOrder = TableOrder(tableId: self.mainDelegate.loggedTable!.id)
+                    self.requestReloadTable()
                     let alert = UIAlertController(title: "Success", message: "Order submitted, please wait for a server!", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
@@ -155,6 +161,15 @@ class CurrentOrderViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "orderToCartModal", sender: self)
     }
+    
+    func updateOrderHistoryButton(){
+        if mainDelegate.orderHistory.count < 1 {
+            orderHistoryButton.isEnabled = false
+        }
+        else {
+            orderHistoryButton.isEnabled = true
+        }
+    }
 }
 
 protocol ParentControllerDelegate{
@@ -167,6 +182,7 @@ extension CurrentOrderViewController: ParentControllerDelegate{
         updateNoItemMsg()
         updateTotal()
         updateSubmitButton()
+        updateOrderHistoryButton()
     }
 }
 

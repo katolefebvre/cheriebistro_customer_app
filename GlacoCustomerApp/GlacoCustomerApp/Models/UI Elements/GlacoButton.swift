@@ -17,7 +17,8 @@ import UIKit
     @IBInspectable var rounded: Bool = false {
         didSet {
             self.layer.cornerRadius = frame.size.height / 2
-            self.layer.backgroundColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
+            //self.layer.backgroundColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
+            self.layer.backgroundColor = CGColor(srgbRed: 255, green: 255, blue: 255, alpha: 1)
             self.setTitleColor(.link, for: .normal)
             self.setTitleColor(.gray, for: .disabled)
         }
