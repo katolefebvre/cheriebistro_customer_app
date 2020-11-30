@@ -9,7 +9,6 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var itemNameLbl: UILabel!
     
     public var category : Category?
@@ -20,8 +19,5 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     public func configure() {
         itemNameLbl.text = category?.name
-        bgImageView.image = UIImage(named: "burger.jpg")
-        bgImageView.contentMode = .scaleAspectFill
-        bgImageView.clipsToBounds = true
     }
 }
