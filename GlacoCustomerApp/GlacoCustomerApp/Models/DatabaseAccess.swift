@@ -315,7 +315,7 @@ class DatabaseAccess {
         task.resume()
         _ = semaphore.wait(wallTimeout: .distantFuture)
         return result
-        }
+    }
     
     
     class func addOrderItem(item : TableOrderItem, orderID : Int) -> [String : String] {
@@ -334,27 +334,27 @@ class DatabaseAccess {
         let dataD = dataString.data(using: .utf8)
 
         do {
-                   let uploadJob = URLSession.shared.uploadTask(with: url as URLRequest, from: dataD) {
-                       data, response, error in
-                       if error != nil {
-                           print(error!)
+           let uploadJob = URLSession.shared.uploadTask(with: url as URLRequest, from: dataD) {
+               data, response, error in
+               if error != nil {
+                   print(error!)
+                   semaphore.signal()
+                   return
+               } else {
+                if let unwrappedData = data{
+                    
+                       let jsonResponse = try! JSONSerialization.jsonObject(with: unwrappedData, options: [])
+                       guard let jsonArray = jsonResponse as? [String: String] else {
                            semaphore.signal()
                            return
-                       } else {
-                        if let unwrappedData = data{
-                            
-                               let jsonResponse = try! JSONSerialization.jsonObject(with: unwrappedData, options: [])
-                               guard let jsonArray = jsonResponse as? [String: String] else {
-                                   semaphore.signal()
-                                   return
-                               }
-                            results = jsonArray
-                           }
                        }
-                       semaphore.signal()
+                    results = jsonArray
                    }
-                   uploadJob.resume()
                }
+               semaphore.signal()
+           }
+           uploadJob.resume()
+        }
         _ = semaphore.wait(wallTimeout: .distantFuture)
         return results
     }
