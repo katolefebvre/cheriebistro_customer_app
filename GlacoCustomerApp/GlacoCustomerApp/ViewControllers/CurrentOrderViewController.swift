@@ -56,6 +56,7 @@ class CurrentOrderViewController: UIViewController, UITableViewDelegate, UITable
         updateNoItemMsg()
         updateTotal()
         updateSubmitButton()
+        updateOrderHistoryButton()
     }
     
     func updateNoItemMsg(){
