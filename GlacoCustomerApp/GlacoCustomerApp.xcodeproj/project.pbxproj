@@ -28,6 +28,7 @@
 		7DAD3F1B251FE771006C85FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DAD3F1A251FE771006C85FF /* QuartzCore.framework */; };
 		7DB0FF112521936A0030065C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0FF102521936A0030065C /* CategoryCollectionViewCell.swift */; };
 		7DB0FF14252197800030065C /* burger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DB0FF13252197800030065C /* burger.jpg */; };
+		7DBB44C42575FC8300CD7ADF /* categories.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DBB44C32575FC8300CD7ADF /* categories.jpg */; };
 		AE435429253458A200F75EE3 /* TableOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE435428253458A200F75EE3 /* TableOrder.swift */; };
 		AE43542B253458DF00F75EE3 /* TableOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE43542A253458DF00F75EE3 /* TableOrderItem.swift */; };
 		AE89686225640AAF0091F06D /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89686125640AAF0091F06D /* OrderHistoryViewController.swift */; };
@@ -61,6 +62,7 @@
 		7DAD3F1A251FE771006C85FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7DB0FF102521936A0030065C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DB0FF13252197800030065C /* burger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burger.jpg; sourceTree = "<group>"; };
+		7DBB44C32575FC8300CD7ADF /* categories.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = categories.jpg; sourceTree = "<group>"; };
 		AE435428253458A200F75EE3 /* TableOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOrder.swift; sourceTree = "<group>"; };
 		AE43542A253458DF00F75EE3 /* TableOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOrderItem.swift; sourceTree = "<group>"; };
 		AE89686125640AAF0091F06D /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		7D385155251C41D500FFF012 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7DBB44C32575FC8300CD7ADF /* categories.jpg */,
 				7DB0FF13252197800030065C /* burger.jpg */,
 				7D144BAD251FA95100D82011 /* cherieBistroLogo.png */,
 			);
@@ -252,6 +255,7 @@
 				7D385148251C414B00FFF012 /* Assets.xcassets in Resources */,
 				7D385146251C414A00FFF012 /* Main.storyboard in Resources */,
 				7D144BAE251FA95100D82011 /* cherieBistroLogo.png in Resources */,
+				7DBB44C42575FC8300CD7ADF /* categories.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

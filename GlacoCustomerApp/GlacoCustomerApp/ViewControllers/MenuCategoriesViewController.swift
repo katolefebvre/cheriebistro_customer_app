@@ -44,7 +44,7 @@ extension MenuCategoriesViewController: UICollectionViewDelegateFlowLayout, UICo
         cell.category = menuCategories[indexPath.row]
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.gray.cgColor
-        cell.layer.cornerRadius = 4
+        cell.layer.cornerRadius = 10
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 2)
         cell.layer.shadowRadius = 4
@@ -58,7 +58,7 @@ extension MenuCategoriesViewController: UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: menuCollectionView.frame.width/4.18, height: menuCollectionView.frame.height/3)
+        return CGSize(width: menuCollectionView.frame.width, height: menuCollectionView.frame.height/7.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
